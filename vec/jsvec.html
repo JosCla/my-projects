@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Epicycles</title>
+        
+        <style>
+            body {
+                font-family: Arial;
+            }
+            
+            h1 {
+                background-color: lightgray;
+            }
+            
+            .draw-cont {
+                position: relative;
+                border: 1px solid black; 
+                height: 500px; 
+                width: 500px; 
+                margin: 0 auto;
+            }
+            
+            .draw {
+                position: absolute;
+                left: 0px;
+            }
+            
+            .title-text {
+                background-color: #4477DD;
+                color: white;
+                font-size: 20px;
+            }
+            
+            .row-odd {
+                background-color: lightgray;
+            }
+            
+            .row-even {
+                background-color: darkgray;
+            }
+        </style>
+        
+        <!-- Credit to Jos de Jong for the mathjs library! -->
+        <script src="./../libs/math.min.js"></script>
+    </head>
+
+    <body>
+        <h1>Epicycle Drawing Tool</h1>
+        
+        <div id="canv" class="draw-cont">
+            <canvas id="points" width=500 height=500 class="draw"></canvas>
+            <canvas id="trace" width=500 height=500 class="draw"></canvas>
+            <canvas id="epicycle" width=500 height=500 class="draw"></canvas>
+        </div><br>
+        
+        <div id="txt-degree" style="text-align: center;">Degree: 0</div> 
+        <div id="slider" style="display: block; margin: 0 auto; width: 190px;">
+            <button id="btn-left">&lt;</button>
+            <input id="input-degree" type="range" min="0" max="0" value="0">
+            <button id="btn-right">&gt;</button><br>
+        </div>
+        
+        <table id="options" style="display: table; position: absolute; top: 78px;" cellpadding="2">
+            <tbody>
+                <tr class="title-text">
+                    <td style="padding: 2px;">Options</td>
+                </tr>
+                <tr class="row-odd" id="tr-pts">
+                    <td>
+                        <input id="input-pts" type="checkbox" checked=true>Display Points
+                    </td>
+                </tr>
+                <tr class="row-even">
+                    <td>
+                        <input id="input-inst" type="checkbox">Speed Draw
+                    </td>
+                </tr>
+                <tr class="row-odd">
+                    <td>
+                        <input id="input-center" type="checkbox">Center Camera on Tip
+                    </td>
+                </tr>
+                <tr class="row-even">
+                    <td>
+                        <table id="options-speed" style="display: table; text-align: center;" cellpadding="1">
+                            <tr>
+                                <td></td>
+                                <td width="50px">1.00x</td>
+                                <td width="50px">0.10x</td>
+                                <td width="50px">0.01x</td>
+                            </tr>
+                            <tr>
+                                <td width="125px">Speed Multiplier</td>
+                                <td><input type=radio name="spd" onclick="slowMult = 1;" checked=true></td>
+                                <td><input type=radio name="spd" onclick="slowMult = 10;"></td>
+                                <td><input type=radio name="spd" onclick="slowMult = 100;"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr class="row-odd" id="tr-zoom" style="display: none;">
+                    <td>
+                        <table id="options-zoom" style="display: table; text-align: center;" cellpadding="1">
+                            <tr>
+                                <td></td>
+                                <td width="50px">1x</td>
+                                <td width="50px">10x</td>
+                                <td width="50px">100x</td>
+                            </tr>
+                            <tr>
+                                <td width="125px">Zoom Multiplier</td>
+                                <td><input type=radio name="zoom" onclick="zoomMult = 1;" checked=true></td>
+                                <td><input type=radio name="zoom" onclick="zoomMult = 10;"></td>
+                                <td><input type=radio name="zoom" onclick="zoomMult = 100;"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button id="input-clear">Clear Points</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+    
+    <script src="jsvec.js"></script>
+    
+</html>
