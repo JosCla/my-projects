@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Circuits</title>
+        
+        <style>
+            body {
+                font-family: Arial;
+            }
+            
+            #main {
+                border: 1px solid black;
+                width: 145px;
+            }
+            
+            #output {
+                border: 1px solid black;
+                width: 600px;
+                height: 50px;
+            }
+            
+            #circuit {
+                border: 1px solid black;
+            }
+            
+            .alert {
+                color: #DD1111;
+            }
+            
+            #guide {
+                background-color: #DDDDDD;
+                left: 620px;
+                top: 80px;
+                position: absolute;
+                border: 1px solid black;
+                width: 400px;
+                height: 657px;
+            }
+        </style>
+        
+        <!-- Credit to Jos de Jong for the mathjs library! -->
+        <script src='./../libs/math.min.js'></script>
+    </head>
+
+    <body>
+        <h1>Circuit Simulator</h1>
+        <canvas id="circuit"></canvas>
+        <div id="output">
+            Output: <br>
+        </div><br>
+        <input type="checkbox" id="showI" onclick="circ.draw();">Show Current<br><br>
+        <button id="open-guide" style="display: none;" onclick="document.getElementById('guide').style.display = ''; document.getElementById('open-guide').style.display = 'none';">Open Guide</button>
+        <div id="guide">
+            <span style="margin: 0px 10px; position: absolute;">
+                <h1>Circuit Creation Guide</h1>
+                
+                <h2>Arrow Keys to move.</h2>
+                <h2>To place a wire, press space at the start point and end point of where you would like to place the wire.</h2>
+                
+                <b>Cursor modes (placement):</b> <br>
+                W - Wire: An open wire with negligible resistance. <br>
+                B - Battery: A voltage source. <br>
+                R - Resistor: A wire which resists current flow. <br>
+                L - Light: A light. (functions as a visual resistor) <br>
+                S - Switch: Can toggle flow through a segment of wire. Open and close switches by pressing '0'. <br><br>
+                
+                <b>Cursor modes (other):</b> <br>
+                V - Volt-meter: Compare the voltage of two points. <br>
+                D - Delete: Delete any wires between two points. <br><br>
+                
+                <b>Making a circuit:</b> <br>
+                To make a circuit, you must make a full loop of wire. To make current flow along the circuit, place a battery in the loop. Finally, to control current flow, place a resistor somewhere along the loop.
+            </span>
+            <button id="close-guide" style="bottom: 10px; left: 10px; position: absolute;" onclick="document.getElementById('guide').style.display = 'none'; document.getElementById('open-guide').style.display = '';">Close Guide</button>
+        </div>
+    </body>
+    
+    <script src="jscirc.js"></script>
+    
+</html>
