@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Stock Predictor</title>
+        
+        <style>
+            body {
+                font-family: 'Arial';
+            }
+            
+            canvas {
+                border: 1px solid black;
+            }
+            
+            h1 {
+                background-color: lightgray;
+            }
+            
+            #credit {
+                position: absolute;
+                bottom: 10px;
+                border: 1px solid black;
+            }
+            
+            .stat-box {
+                display: inline-block;
+                width: 195.5px;
+                height: 100px;
+                overflow: auto;
+                border: 1px solid black;
+            }
+            
+            .btn1 {
+                width: 399px;
+                height: 50px;
+            }
+            
+            .box1 {
+                width: 397.5px;
+                height: 50px;
+                display: inline-block;
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Stock Predictor</h1>
+        <canvas id="graph" width="800px" height="200px"></canvas>
+        <div id="stock" style="width: 800px; height: 30px;">
+            <div id="stock-used" style="display: inline-block;">Stock Used: </div>
+            <button id="btn-hide-stock" style="position: absolute; left: 710px; width: 100px;" 
+                    onclick="document.getElementById('stock').style.display = 'none'">Hide Stock</button>
+        </div><br>
+        <div id="input-api">Input API Key: <input id="API-key" value="key">(API keys can be obtained at link below)<br><br></div>
+        <button id="btn-start" onclick="newStock();" class="btn1">New Game</button>
+        <button id="btn-step" onclick="step();" class="btn1" disabled>Step Forward</button><br><br>
+        <div id="UI" style="display: none;">
+            <div id="stat-cont">
+                <div id="output-day" class="stat-box"><span style="font-size: 20pt">Day:</span><br></div>
+                <div id="output-funds" class="stat-box"><span style="font-size: 20pt">Funds:</span><br></div>
+                <div id="output-stocks" class="stat-box"><span style="font-size: 20pt">Stocks:</span><br></div>
+                <div id="output-stockval" class="stat-box"><span style="font-size: 20pt">Stock Value:</span><br></div>
+            </div>
+            <div id="cont-buy" class="box1">
+                Buy (stocks):<br> <input id="input-buy" width="200px" type="number" value="0">
+                <button id="btn-buy" onclick="buy(parseInt(document.getElementById('input-buy').value))">Buy</button>
+            </div>
+            <div id="cont-sell" class="box1">
+                Sell (stocks):<br> <input id="input-sell" width="200px" type="number" value="0">
+                <button id="btn-sell" onclick="sell(parseInt(document.getElementById('input-sell').value))">Sell</button>
+            </div>
+            
+        </div><br>
+        <div id="final" style="display: none;"></div>
+        <div id="credit">API Used : AlphaVantage - <a href="https://www.alphavantage.co/">https://www.alphavantage.co/</a></div>
+    </body>
+    
+    <script src="jsstock.js"></script>
+    
+</html>
