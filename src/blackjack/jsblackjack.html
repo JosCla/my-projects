@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>HTML Blackjack</title>
+        
+        <link type="text/css" rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <h1 id="title">HTML Blackjack</h1>
+        <div id="main">
+            <div id="play">
+                <b><div id="playerTag">Player Hand: </div></b>
+                <div id="playerHolder" class="holder"></div>
+                <b><div id="dealerTag">Dealer Hand: </div></b>
+                <div id="dealerHolder" class="holder"></div>
+                
+                <div id="disp-cash">Cash: 100</div>
+                <div id="disp-bet">Bet: 0</div>
+            </div>
+            
+            <div id="interact">
+                <b><div id="output">Press 'New Game' to begin.</div></b>
+                <button id="btn-start" onclick="newGame();">New Game</button><br>
+                
+                <div id="bet" style="display: none;">
+                    Bet Amount: <input id="input-bet" type="number" value="1" min="1"><br>
+                    <button id="btn-max" onclick="document.getElementById('input-bet').value = cash;">Bet Max</button><br><br>
+                    <button id="btn-deal" onclick="dealNew();">Deal Hand</button><br>
+                </div>
+                <div id="actions" style="display: none;">
+                    <button id="btn-hold" onclick="action('hold');">Hold</button>
+                    <button id="btn-hit" onclick="action('hit');">Hit</button>
+                    <button id="btn-double" onclick="action('double');">Double</button>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+    
+    <script src="jsblackjack.html"></script>
+    
+</html>

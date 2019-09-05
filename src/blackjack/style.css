@@ -1,0 +1,115 @@
+/* General */
+
+body {
+    font-family: Arial; 
+    line-height: 25px;
+    padding: 0px 5px;
+}
+
+button {
+    border-radius: 5px;
+    background-color: lightgray;
+    padding: 2px;
+    width: 100px;
+    height: 30px;
+}
+
+/* Interface */
+
+#title {
+    padding: 10px;
+    background-color: lightgray;
+}
+
+#play {
+    border: 1px solid black;
+    height: auto;
+    width: 600px;
+    padding: 8px;
+    background-color: lightgray;
+}
+
+#interact {
+    border: 1px solid black;
+    height: auto;
+    width: 600px;
+    padding: 8px;
+}
+
+#disp-cash, #disp-bet {
+    font-size: 20px;
+}
+
+.holder {
+    height: 180px;
+}
+
+/* Cards */
+
+#cover {
+    left: 30px;
+    height: 160px;
+    width: 120px;
+    padding: 3px;
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: navy;
+    position: absolute;
+} 
+
+.card {
+    left: 30px;
+    height: 160px;
+    width: 120px;
+    padding: 3px;
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: white;
+    position: absolute;
+    display: inline-block;
+    font-family: Lato;
+}
+
+.card-top {
+    font-size: 20px;
+    line-height: 18px;
+    left: 2px;
+    top: 2px;
+    position: absolute;
+}
+
+.card-middle {
+    font-size: 60px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 160px;
+}
+
+.card-bottom {
+    font-size: 20px;
+    line-height: 18px;
+    right: 2px;
+    bottom: 2px;
+    transform: rotate(180deg);
+    position: absolute;
+}
+
+.hearts, .diams {
+    color: red;
+}
+.clubs, .spades {
+    color: black;
+}
+
+.hearts .suit::after{
+    content: "\2665";
+}
+.diams .suit::after{
+    content: "\2666";
+}
+.clubs .suit::after{
+    content: "\2663";
+}
+.spades .suit::after{
+    content: "\2660";
+}
