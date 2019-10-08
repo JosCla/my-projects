@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>RSA</title>
+        
+        <style>
+            body {
+                font-family: "Arial";
+            }
+            
+            h1 {
+                background-color: lightgray;
+            }
+            
+            h2 {
+                background-color: lightgray;
+                font-size: 20pt;
+            }
+            
+            input {
+                width: 380px;
+            }
+            
+            .box {
+                border: 1px solid black;
+                position: absolute;
+                height: 250px;
+                width: 400px;
+            }
+        </style>
+        
+        <script src="http://peterolson.github.com/BigInteger.js/BigInteger.min.js"></script>
+    </head>
+
+    <body>
+        <h1>RSA Encryption</h1>
+        
+        <div id="input-container" style="position: relative; height: 260px;">
+            
+            <div id="encrypt" class="box" style="left: 0px;">
+                
+                <h2>Encrypt Message</h2>
+                Public Key: (e, n)<br>
+                <input id="public-e"><br>
+                <input id="public-n"><br><br>
+                
+                Message: <br>
+                <input id="message"><br><br>
+                <button id="btn-encrypt" onclick="encrypt(bigInt(document.getElementById('public-e').value.toString()).value, bigInt(document.getElementById('public-n').value.toString()).value)">Encrypt</button>
+                
+            </div>
+            
+            <div id="decrypt" class="box" style="left: 410px;">
+                
+                <h2>Decrypt Message</h2>
+                Private Key: (d, n)<br>
+                <input id="private-d"><br>
+                <input id="private-n"><br><br>
+                
+                Encrypted Message: <br>
+                <input id="enc-message"><br><br>
+                <button id="btn-encrypt" onclick="decrypt(bigInt(document.getElementById('private-d').value.toString()).value, bigInt(document.getElementById('private-n').value.toString()).value)">Decrypt</button>
+                
+            </div>
+            
+        </div>
+        
+        <button id="btn-new" onclick="dispNewKey()">Generate New Key</button><br><br>
+        <div id="output" style="font-size: 5pt">Output:</div>
+    </body>
+    
+    <script src="rsa-encrypt.js"></script>
+    
+</html>
