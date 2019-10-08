@@ -20,39 +20,39 @@ function dispNewKey() {
 function genKeyFrom(p, q, n, totN, e, dispProg) {
     // accounting for factors not input by the user
     if ((p === undefined || q === undefined) && n !== undefined) {
-        if (dispProg !== undefined) {console.log("Generating q...");}
+        if (dispProg === true) {console.log("Generating q...");}
         if (p !== undefined && q === undefined) {
             q = n / p;
-            console.log(q);
         } else if (q !== undefined && p === undefined) {
             p = n / q;
         }
     }
     if (totN === undefined || n === undefined) {
         if (p === undefined || q === undefined) {
-            if (dispProg !== undefined) {console.log("Generating p and q... (no key match found!)");}
+            if (dispProg === true) {console.log("Generating p and q... (no key match found!)");}
             p = primeGen(PQLEN);
             q = primeGen(PQLEN);
         }
-        if (dispProg !== undefined) {console.log("Generating n and totN...");}
+        if (dispProg === true) {console.log("Generating n and totN...");}
         n = p * q;
         totN = (p - 1n) * (q - 1n);
         if (e === undefined) {
-            if (dispProg !== undefined) {console.log("Generating e... (no key match found!)");}
+            if (dispProg === true) {console.log("Generating e... (no key match found!)");}
             e = genE(totN);
         }
     }
     if (e === undefined) {
-        if (dispProg !== undefined) {console.log("Generating e... (no key match found!)");}
+        if (dispProg === true) {console.log("Generating e... (no key match found!)");}
         e = genE(totN);
     }
     
     // generating d
-    if (dispProg !== undefined) {console.log("Generating d...");}
+    if (dispProg === true) {console.log("Generating d...");}
     d = MMI(e, totN);
     while (d < 0n) {d = d + totN;}
     
-    // returning e, d, and n
+    // returning values
+    if (dispProg === true) {console.log([p, q, totN]);}
     return [e, d, n];
 }
 
