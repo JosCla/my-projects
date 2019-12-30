@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>neural net</title>
+        
+        <style>
+            h1 {
+                font-size: 30pt;
+            }
+            
+            body {
+                font-family: 'Arial';
+            }
+            
+            .btn-ui {
+                float: left;
+                border: 1px solid black;
+                width: 133px;
+                height: 16px;
+                font-size: 12pt;
+                text-align: center;
+            }
+            
+            .selected {
+                background-color: lightgray;
+            }
+        </style>
+        
+        <script src='./libs/math.min.js'></script>
+    </head>
+
+    <body style='display: none;'>
+        
+        <!-- Note: This version is out of date. It was created on 4 Jan. 2019. -->
+        
+        <h1>Neural Network (Outdated)</h1>
+        <button id='init' onclick='init();' style='background-color: transparent; width: 404px; height: 50px;'>Initialize Neural Network</button><br><br>
+        <div id='ui'>
+            <div id='ui-select'>
+                <div id='open-test' class='selected btn-ui' onclick='changeTab("test");'>Test Network</div>
+                <div id='open-save' class='btn-ui' onclick='changeTab("save");'>Save Network</div>
+                <div id='open-graph' class='btn-ui' onclick='changeTab("graph");'>Graph Settings</div>
+            </div><br>
+            <div id='div-test'>
+                <h2>Neural Network Testing</h2>
+                Select Mini-Set | Size: <input id='index-size' type='number' value='100'> 
+                <button onclick='net.selectSet(parseInt(document.getElementById("index-size").value));'>Select</button><br>
+                Draw New Number | Index: <input id='index-draw' type='number' value='0'> 
+                <button onclick='net.draw(parseInt(document.getElementById("index-draw").value));'>Draw</button><br><br>
+                Run Test | Index: <input id='index-test' type='number' value='0'>
+                <button onclick='net.test(parseInt(document.getElementById("index-test").value));'>Test</button><br>
+                <button onclick='totalSuccess = 0; testInterval = setInterval(net.autoTest, 1);' id='autotest'>Auto-Test</button><br>
+                Learn from tests?: <input id='learn' type='checkbox'> 
+                Repeat after finished?: <input id='continue' type='checkbox'>
+                Display visuals?: <input id='display-visuals' type='checkbox' checked=true><br>
+                Learn speed: <input id='learn-speed' type='number' value='1'>
+            </div>
+            
+            <div id='div-save' style='display: none'>
+                <h2>Save / Load Neural Net</h2>
+                Name file: <input id='name' value='net'> | <button id='create' onclick='save();'>Create File</button>
+                <div id='file-cont'></div><br>
+                File Path from current directory (load): <input id='loadpath' type='text'> | 
+                <button id='load' onclick='load(document.getElementById("loadpath").value);'>Load File</button>
+            </div>
+            
+            <div id='div-graph' style='display: none'>
+                <h2>Graph Settings</h2>
+                Graph scale (cost): <input id='graph-scale' type=number value=5>
+                Show how many tests?: <br>
+                <form>
+                    Show All: <input id='show-all' type=radio name='show'><br>
+                    Show Amounts: <input id='show-amount' type=radio name='show' checked=true> <input id='show-number' type=number value=100>
+                </form>
+            </div>
+        </div><br>
+        
+        <div id='label'>Label: NaN</div>
+        <canvas id='num' width=279px height=280px style='border: 1px solid black; float: left;'></canvas>
+        
+        <div id='output' style='border: 1px solid black; width: 200px; height: 280px; float: left;'>
+            Output: <br><br>
+        </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        
+        <canvas id='results' width=480px height=200px style='border: 1px solid black;'></canvas><br>
+        <canvas id='number-all' width=280px height=280px style='border: 1px solid black;'></canvas>
+    </body>
+    
+    <script src="jsnet.js"></script>
+    
+</html>
