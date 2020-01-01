@@ -1,4 +1,4 @@
-#Neural Network
+# Neural Network
 This is a neural network made to learn to recognize handwritten digits.
 Using backpropagation calculus, it finds out, for every connection, whether the connection's weight needs to be increased or decreased.
 From this, the network increases its accuracy, and decreases its cost, which represents how much the network's guess deviates from the correct answer.

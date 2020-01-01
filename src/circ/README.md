@@ -1,4 +1,4 @@
-#Circuit Simulator
+# Circuit Simulator
 This is a circuit simulation tool.
 You can place wires, resistors, batteries, switches, and light-bulbs.
 With these components, you can create a circuit and observe its behavior.

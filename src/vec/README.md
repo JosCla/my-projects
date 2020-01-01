@@ -1,4 +1,4 @@
-#Epicycle Drawing Tool
+# Epicycle Drawing Tool
 This is a tool made to draw a picture using an epicycle.
 The user provides the program with a Connect-the-Dots picture, which will then be drawn by an epicycle.
 
