@@ -1,4 +1,4 @@
-#Stock Predictor
+# Stock Predictor
 This is a stock market prediction game.
 The user is given some fake currency, and is then allowed to make fake investments into real stocks using that money.
 The goal is to learn how to predict the variation of stocks, in order to turn a (fake) profit.
